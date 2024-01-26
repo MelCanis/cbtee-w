@@ -1,0 +1,21 @@
+@import "../../styles/utils"
+.Success
+    +posr
+    img
+        +posa
+        +t(0)
+        +l(0)
+        +whs(100%)
+        object-fit: cover
+        +o(.25)
+        +z(1)
+
+    div
+        +posa
+        +z(2)
+        +cen
+        text-shadow: 8px 8px 6px transparentize(#555, .75)
+        h1
+            +fs($size*4)
+        p
+            +fs($size*1.5)

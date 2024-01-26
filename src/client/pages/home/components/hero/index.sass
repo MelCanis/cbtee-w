@@ -1,0 +1,56 @@
+@import "../../../../styles/utils"
+
+.Hero
+    +wh(100%, $size*32)
+    +bg($white)
+    +oh
+    +posr
+    @media (orientation: portrait)
+        +wh(100%, $size*42)
+
+    .background
+        +cen
+        +whs(100%)
+        +df
+        +o(.5)
+        filter: blur($size*.25)
+        img
+            +f(1)
+            object-fit: cover
+    .text
+        +cen
+        +fdc
+        +cenc
+        +tac
+        @media (orientation: landscape)
+            +mnw(70%)
+        // +o(0)
+        // text-shadow: 0 0 $size*.5 transparentize($black, .75)
+        h1
+            +fs($size*5)
+            +fw(900)
+            +ls($size/-7)
+            +lh($size*4)
+            font-style: italic
+            // +mb($size)
+            +c($accent-dark-2)
+            +dancing
+        h4
+            +p($size $size*2)
+            // +bg(transparentize($black, .5))
+            +fw(300)
+            +fs($size*1.5)
+            +mb($size)
+            +c($black)
+            // +o(0)
+        button
+            +fs($size*2)
+            +fw(700)
+            +mt($size*2)
+            +p($size*.5 $size*2)
+            +bg($accent-dark-2)
+            +rad($roundness)
+            +bdrn
+            +c($white)
+            +cp
+            // +o(0)

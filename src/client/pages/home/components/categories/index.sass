@@ -1,0 +1,88 @@
+@import "../../../../styles/utils"
+.Categories
+    +w(100%)
+    +mnh($size*40)
+    +p($size*2)
+    +df
+    +fdc
+    justify-content: space-evenly
+
+    .content
+        +whs(100%)
+        +df
+        +fwr
+        +jca
+        +cenc
+        +posr
+    h1
+        +tac
+        // +posa
+        // +cenx
+        // +t($size*4)
+    .Category
+        +posr
+        +df
+        +fdc
+        +m($size)
+        +cp
+        // +mb($size*2)
+        // +mr($size*2)
+        +cenc
+        // +bg($white)
+        // +p($size*2)
+        // +pt($size)
+        // box-shadow: 0 $size*.5 $size*.5 transparentize($black, .9)
+        +o(.85)
+        +trs($transition)
+        
+        h2
+            +mb($size)
+            +fs($size*1.5)
+            +c($grey2)
+            +fw(300)
+        .images
+            +df
+            +jcb
+        img
+            +w($size*14)
+            +mb($size)
+            object-fit: cover
+            +rad($roundness)
+            +trs($transition)
+            // +p($size)
+            &:first-of-type
+                +posr
+                +z(2)
+            &:last-of-type
+                +posr
+                +z(1)
+                // +t($size*2)
+                // +l(-$size*2)
+        button
+            +cen
+            +cp
+            +fs($size)
+            +rad($roundness)
+            +trs($transition)
+            +z(3)
+            +o(0)
+            +bg($white)
+            +bdrn
+            +c($black)
+            +fs($size*1.5)
+            // box-shadow: 0 $size*.5 $size transparentize($black, .5)
+            +fw(300)
+            +t(45%)
+            +p($size $size*2)
+            
+            // +dn
+
+        &:hover
+            +o(1)
+            img
+                box-shadow: 0 $size*.5 $size transparentize($black, .5)
+            h2
+                +c($black)
+            button
+                +o(1)
+                

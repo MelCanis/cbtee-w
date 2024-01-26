@@ -1,0 +1,85 @@
+@import "../../styles/utils"
+.Shop
+    +pt($size*5)
+    +mnh(100vh)
+    .filters
+        +p($size)
+        +pl($size*3)
+        +df
+        +aic
+        +acc
+        +fwr
+        @media (orientation: portrait)
+            +jce
+        .filter
+            // +p($size*.5 $size)
+            // +bdr(#777)
+            +c(#777)
+            +rad($roundness)
+            +mr($size)
+            +mb($size*.5)
+            +p($size*.5 $size)
+            +cp
+            +trs($transition)
+            &:hover
+                +c($black)
+        .filter-active
+            +bg($grey)
+            +c($white)
+            // +mr($size*1.5)
+            &:hover
+                +c($white)
+        svg
+            +whs($size)
+            +fl($grey)
+            +mr($size)
+            +mb($size*.5)
+
+    .products
+        +df
+        +fwr
+        justify-content: space-evenly
+        justify-items: flex-start
+        // @media (orientation: landscape)
+        // +w(100%)
+        +p($size $size*2)
+        .product
+            +rad($roundness)
+            +oh
+            // +mnh($size*24)
+            +bg($white)
+            +bdr($accent-light)
+            @media (min-width: 950px)
+                +w(17.5%)
+            @media (max-width: 950px)
+                +w(24%)
+            @media (orientation: portrait)
+                +w(48%)    
+            +mb($size*2)
+            // +w(25%)
+            +tac
+            +pb($size*1.5)
+            +df
+            +fdc
+            // +aic
+
+            // +jcb
+            img
+                +mb($size)
+                +w(100%)
+            .span
+                +df
+                +fdc
+                +cenc
+            h3
+                +w(80%)
+                +m(0 $size*.5)
+                +mb($size*.5)
+                // +oe
+                +fw(300)
+            h5
+                +fs($size*1.5)
+                +c($orange)
+            +trs($transition)
+            &:hover
+                box-shadow: 0 $size*.5 $size*2 transparentize($black, .75)

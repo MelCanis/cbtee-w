@@ -1,0 +1,77 @@
+@import "../../styles/utils"
+
+.Product
+    +mnh(100vh)
+    +p($size*4)
+    // +p(0 $size*4)
+    +pt($size*6)
+    +pb($size*2)
+    +df
+    
+    justify-content: space-between
+    .image
+        // +f(1)
+        cursor: grab
+        +mxw(30%)
+        // +p(0 $size)
+        img
+            +mxw(100%)
+            box-shadow: 0 $size*.5 $size transparentize($black, .75)
+            +rad($roundness)
+            +w(100%)
+    .info
+        // +ml($size*16)
+        // +mr($size*2)
+        // +df
+        // +fdc
+        // align-items: flex-end
+        // +f(2)+mxw(30%)
+        // +bg($white)
+        // +p($size*2)
+        +mxw(50%)
+        .name
+            +fs($size*2)
+        .price
+            +fs($size*3)
+            +c($blue)
+        .description
+            +mt($size)
+            font-style: italic
+            // +p($size)
+        hr
+            +bdrn
+            +bdrb($grey2)
+            +m($size 0)
+            +mb($size*.5)
+        button
+            +fs($size)
+            +bdrn
+            +bg(transparentize($accent-dark, .1))
+            +c($white)
+            +rad($roundness)
+            +m($size 0)
+            +p($size $size*2)
+            +cp
+            +trs($transition)
+            &:hover
+                +bg($accent-dark)
+            &:first-of-type
+                +bg(transparentize($orange, .1))
+                +mr($size)
+                &:hover
+                    +bg($orange)
+    @media (orientation: portrait)
+        +fdc
+        +aic
+        +p($size*2)
+        +pt($size*6)
+        .image
+            +mxw(100%)
+            +mb($size*2)
+        .info
+            +tac
+            +mxw(100%)
+            .buttons
+                +df
+                // +fdc
+                +cenc

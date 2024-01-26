@@ -1,0 +1,21 @@
+@import "../../styles/utils"
+.Footer
+    +wh(100%, $size*4)
+    +bg($accent-dark)
+    +df
+    +jcb
+    +p($size $size*4)
+    @media (orientation: portrait)
+        +p(0 $size*2)
+    +aic
+    span
+        +df
+        +aic
+        // +mr($size*4)
+    p
+        +c($white)
+        +fs($size*.75)
+        // font-style: italic
+    svg
+        +fl($white)
+        +mr($size)

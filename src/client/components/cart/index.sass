@@ -1,0 +1,69 @@
+@import "../../styles/utils"
+    
+.Cart
+    +bg(white)
+    +t(0)
+    +r(0)
+    +posf
+    +p($size)
+    +pt($size*5)
+    +wh($size*18, 100%)
+    +z(4)
+    +df
+    +fdc
+    animation: slideout $transition
+    p
+        +mb($size)
+    box-shadow: -$size 0 $size transparentize($black, .95)
+    button
+        +bg(transparentize($orange, .1))
+        +trs($transition)
+        +bdrn
+        +rad($roundness)
+        +c($white)
+        +p($size $size*2)
+        +fs($size)
+        +cp
+        +mb($size)
+        &:hover
+            +bg($orange)
+    .cart-items
+        +f(1)
+    .CartItem
+        +df
+        +jcb
+        +bg($white)
+        +p($size)
+        +rad($roundness)
+        +mb($size)
+        // box-shadow: 0 0 $size transparentize($black, .85)
+        svg
+            align-self: center
+            +fl($grey)
+            +trs($transition)
+            +cp
+            // +bg(#999)
+            // +bdr($grey2)
+            +rad($roundness)
+            // +p($size*.5)
+            &:hover
+                +fl($black)
+        img
+            +w(20%)
+            +rad($roundness)
+        span
+            +w(60%)
+            +tar
+            h5
+                +c($grey)
+                +fw(400)
+                +mb($size*.5)
+            h6
+                +fw(600)
+                +c($orange)
+
+@keyframes slideout
+    0%
+        +r(-100%)
+    100%
+        +r(0)

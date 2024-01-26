@@ -1,0 +1,43 @@
+@import "../../styles/utils"
+.about
+    +p($size*4)
+    +pt($size*6)
+    +df
+    +aic
+    +posr
+    img
+        +posa
+        +t(0)
+        +l(0)
+        +whs(100%)
+        object-fit: cover
+        +o(.25)
+        +z(1)
+    .content
+        +posr
+        +z(2)
+    // background: url("/assets/images/dalmation.jpg" )
+    p
+        +m(0 auto)
+        +w(75%)
+        +tac
+        font-style: italic
+        +fs($size*1.5)
+        // +mb($size*2)
+        // +w(50%)
+        +f(1)
+    .gems-info
+        +tac
+        +bg($white)
+        +p($size*2)
+        // +w(50%)
+        +f(1)
+        h2
+            +fs($size*4)
+        h4
+            +fs($size*2)
+            +mb($size*2)
+    .gems
+        +tac
+        img
+            +whs(50%)

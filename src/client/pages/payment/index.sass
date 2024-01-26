@@ -1,0 +1,18 @@
+@import "../../styles/utils"
+
+.Payment
+    +cenc
+    form
+        +w(80%)
+    .submit
+        +fs($size)
+        +m($size 0)
+        +p($size*.5)
+        +bgtr
+        +c($grey)
+        +bdr($grey)
+        +rad($roundness)
+        +cp
+        &:hover
+            +c($black)
+            +bdr($black)

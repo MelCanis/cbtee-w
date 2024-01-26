@@ -1,0 +1,75 @@
+@import "../../styles/utils"
+.Header
+    width: 100%
+    height: $size*4
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 0 $size*4
+    @media (orientation: portrait)
+        +p(0 $size*2)
+    background: $white
+    position: fixed
+    z-index: 5
+    h2
+        +fw(900)
+        +fs($size*1.25)
+        font-style: italic
+        +dancing
+        +c($black)
+
+    @media (max-width: 350px)
+        h2
+            +fs($size)
+    +trs($transition)
+    &:hover
+        box-shadow: 0 $size*.5 $size transparentize($black, .9)
+
+.header-left
+    +mxw(75%)
+.headerRight
+    background: blue
+    display: flex
+    justify-content: space-between
+    align-items: center
+    a
+        margin-left: $size
+    h6, .Cart
+        cursor: pointer
+        +c($grey)
+    h6
+        +trs($transition)
+        font-size: $size
+        &:hover
+            +c($black)
+            text-decoration: underlin
+    svg
+        +trs($transition)
+        +cp
+        +fl($grey)
+        &:hover
+            +fl($black)
+
+    span
+        +posr
+        +cenc
+        .cart-count
+            +posa
+            +c($white)
+            +bg($orange)
+            +rad(50%)
+            +p($size*.25)
+            +fs($size*.5)
+            +whs($size)
+            +cenc
+            +r(-$size*.75)
+            +t(-$size*.5)
+            animation: $transition bubblein
+
+@keyframes bubblein
+    0%
+        transform: scale(.5)
+    90%
+        transform: scale(1.1)
+    100%
+        tranform: scale(1)
