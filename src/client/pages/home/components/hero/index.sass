@@ -24,20 +24,17 @@
         +tac
         @media (orientation: landscape)
             +mnw(70%)
-        // +o(0)
-        // text-shadow: 0 0 $size*.5 transparentize($black, .75)
         h1
             +fs($size*5)
             +fw(900)
-            +ls($size/-7)
+            +ls(calc($size/-7))
+            // +ls($size*.001)
             +lh($size*4)
             font-style: italic
-            // +mb($size)
             +c($accent-dark-2)
             +dancing
         h4
             +p($size $size*2)
-            // +bg(transparentize($black, .5))
             +fw(300)
             +fs($size*1.5)
             +mb($size)

@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require("express");
 const ViteExpress = require("vite-express");
 const app = express();
-// ViteExpress.config({ mode: "production" })
+ViteExpress.config({ mode: "production" })
 app.use(express.json())
 const cors = require('cors');
 app.use(
@@ -54,9 +54,7 @@ app.post('/api/checkout', async (req, res) => {
   }
 })
 
-ViteExpress.listen(app, 5500, () =>
+const PORT = process.env.PORT || 5500;
+ViteExpress.listen(app, PORT, () =>
   console.log("Server is listening on port 5500...")
 );
-
-
-
