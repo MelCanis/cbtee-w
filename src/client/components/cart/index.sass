@@ -12,21 +12,22 @@
     +df
     +fdc
     animation: slideout $transition
+    
+    +ls($size*.025)
     p
         +mb($size)
     box-shadow: -$size 0 $size transparentize($black, .95)
     button
-        +bg(transparentize($orange, .1))
+        +bg(transparentize($accent-dark, .1))
         +trs($transition)
         +bdrn
-        +rad($roundness)
         +c($white)
         +p($size $size*2)
         +fs($size)
         +cp
         +mb($size)
         &:hover
-            +bg($orange)
+            +bg($accent-dark)
     .cart-items
         +f(1)
     .CartItem
@@ -34,23 +35,23 @@
         +jcb
         +bg($white)
         +p($size)
-        +rad($roundness)
+        +bdr(transparent)
+        +bdr(#bbb)
+        +trs($transition)
         +mb($size)
-        // box-shadow: 0 0 $size transparentize($black, .85)
+        +aic
         svg
             align-self: center
             +fl($grey)
             +trs($transition)
             +cp
-            // +bg(#999)
-            // +bdr($grey2)
             +rad($roundness)
-            // +p($size*.5)
             &:hover
                 +fl($black)
         img
-            +w(20%)
-            +rad($roundness)
+            +whs($size*2.5)
+            object-fit: cover
+            box-shadow: 0 0 $size transparentize($black, .75)
         span
             +w(60%)
             +tar
@@ -60,7 +61,9 @@
                 +mb($size*.5)
             h6
                 +fw(600)
-                +c($orange)
+                +c($blue)
+        &:hover
+            +bdr($grey)
 
 @keyframes slideout
     0%

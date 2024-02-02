@@ -1,41 +1,46 @@
 @import "../../styles/utils"
 
 .Product
-    +mnh(100vh)
+    +mnh(unset)
     +p($size*4)
-    // +p(0 $size*4)
+    +f(1)
     +pt($size*6)
     +pb($size*2)
     +df
+    +fdc
     
     justify-content: space-between
-    .image
-        // +f(1)
-        cursor: grab
-        +mxw(30%)
-        // +p(0 $size)
+    .product-image
+        +p($size*3)
+        box-shadow: 0 $size*.5 $size transparentize($black, .9)
+        +bg($accent-light)
+        +wh(100%, 50vh)
+        // +mxh(50vh)
+        // +mxw(30%)
+        // +dn
+        +cenc
+        +df
+        .image
+            +h(100%)
+            cursor: grab
         img
-            +mxw(100%)
-            box-shadow: 0 $size*.5 $size transparentize($black, .75)
-            +rad($roundness)
-            +w(100%)
+            // +dn
+            +h(100%)
+            // +w(100%)
+            // +w(100%)
     .info
-        // +ml($size*16)
-        // +mr($size*2)
-        // +df
-        // +fdc
-        // align-items: flex-end
-        // +f(2)+mxw(30%)
-        // +bg($white)
-        // +p($size*2)
         +mxw(50%)
+        +ls($size*.05)
         .name
-            +fs($size*2)
+            +josefin
+            +fw(900)
+            +fs($size*1.5)
         .price
             +fs($size*3)
             +c($blue)
         .description
             +mt($size)
+            +fs($size*.75)
             font-style: italic
             // +p($size)
         hr
@@ -45,21 +50,26 @@
             +mb($size*.5)
         button
             +fs($size)
-            +bdrn
-            +bg(transparentize($accent-dark, .1))
+            +bdr($black)
+            +bg($black)
             +c($white)
-            +rad($roundness)
             +m($size 0)
             +p($size $size*2)
             +cp
             +trs($transition)
+            text-decoration: underline
+            text-decoration-color: transparent
             &:hover
                 +bg($accent-dark)
+                text-decoration-color: $white
             &:first-of-type
-                +bg(transparentize($orange, .1))
                 +mr($size)
+                +bg(transparent)
+                +c($black)
+                +bdr($black)
                 &:hover
-                    +bg($orange)
+                    text-decoration-color: $black
+                    // +bg($accent-light)
     @media (orientation: portrait)
         +fdc
         +aic
@@ -69,9 +79,6 @@
             +mxw(100%)
             +mb($size*2)
         .info
-            +tac
             +mxw(100%)
             .buttons
                 +df
-                // +fdc
-                +cenc

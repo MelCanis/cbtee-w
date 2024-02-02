@@ -1,62 +1,81 @@
 @import "../../styles/utils"
 .Header
     width: 100%
-    height: $size*4
+    height: $size*2.5
     display: flex
-    justify-content: space-between
     align-items: center
-    padding: 0 $size*4
+    padding: 0 $size*2
     @media (orientation: portrait)
-        +p(0 $size*2)
+        +p(0 $size)
     background: $white
     position: fixed
     z-index: 5
-    h2
-        +fw(900)
-        +fs($size*1.25)
-        font-style: italic
-        +dancing
-        +c($black)
-
-    @media (max-width: 350px)
-        h2
-            +fs($size)
     +trs($transition)
     &:hover
         box-shadow: 0 $size*.5 $size transparentize($black, .9)
 
-.header-left
-    +mxw(75%)
-.headerRight
-    background: blue
-    display: flex
-    justify-content: space-between
-    align-items: center
-    a
-        margin-left: $size
-    h6, .Cart
-        cursor: pointer
-        +c($grey)
+    h2
+        +fw(900)
+        +fs($size)
+        +ls(calc($size/-15))
+        font-style: italic
+        +c($black)
+        span
+            +fs($size*.9)
+    img
+        +whs($size*1.25)
+        +mr($size*.5)
+        +posr
     h6
+        +cp
         +trs($transition)
-        font-size: $size
+        +fs($size)
+        +fw(400)
         &:hover
             +c($black)
-            text-decoration: underlin
+
+.headerLeft, .headerRight
+    +f(1)
+.headerLeft
+    +df
+    +aic
+    &:hover
+        h6
+            +c($black)
+    h6
+        +c(transparent)
+    // +aic
+.headerRight
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    +ls(calc($size/-15))
+    .content
+        +df
+    a
+        +df
+        +aic
+        margin-right: $size
+    h6, .Cart
+        cursor: pointer
+        +c(#333)
+    
     svg
         +trs($transition)
         +cp
-        +fl($grey)
+        +fl(#333)
+        +mr($size*.25)
         &:hover
             +fl($black)
 
     span
         +posr
         +cenc
+        +cp
         .cart-count
             +posa
             +c($white)
-            +bg($orange)
+            +bg($blue)
             +rad(50%)
             +p($size*.25)
             +fs($size*.5)

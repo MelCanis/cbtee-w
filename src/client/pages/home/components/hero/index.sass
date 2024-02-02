@@ -5,18 +5,33 @@
     +bg($white)
     +oh
     +posr
+    +df
+    +fdc
     @media (orientation: portrait)
         +wh(100%, $size*42)
 
+    .top, .bottom
+        // +wh(100%, 50%)
+        +f(1)
+        +posr
+        +oh
+    .bottom
+        +oh
+        +p($size*2)
+        // +mnh(max-content)
     .background
         +cen
         +whs(100%)
         +df
-        +o(.5)
-        filter: blur($size*.25)
+        // +dn
+        +o(.35)
+        filter: blur($size*.15)
+        // transform: scale(1.1)
         img
             +f(1)
+            // transform: scale(0.9)
             object-fit: cover
+            animation: zoomin 1s
     .text
         +cen
         +fdc
@@ -24,30 +39,42 @@
         +tac
         @media (orientation: landscape)
             +mnw(70%)
-        h1
+        h1, span
+            // +c($accent-dark)
             +fs($size*5)
             +fw(900)
             +ls(calc($size/-7))
-            // +ls($size*.001)
             +lh($size*4)
             font-style: italic
-            +c($accent-dark-2)
-            +dancing
+            +dm
+            text-shadow: 0 $size*.25 #aaa
+        span
+            +fs($size*5.5)
+            +ls(calc($size/-6))
+            // +c($accent-dark-2)
         h4
             +p($size $size*2)
-            +fw(300)
+            +fw(400)
             +fs($size*1.5)
             +mb($size)
             +c($black)
-            // +o(0)
+            +ls(calc($size/-10))
+            // +dm
+            // text-shadow: $size*.25 $size*.25 transparentize($black, .9)
         button
-            +fs($size*2)
-            +fw(700)
-            +mt($size*2)
+            +fs($size*1.2)
+            +fw(900)
             +p($size*.5 $size*2)
-            +bg($accent-dark-2)
+            +bg(#111) 
+            +bg($accent-dark)
             +rad($roundness)
             +bdrn
             +c($white)
             +cp
             // +o(0)
+
+@keyframes zoomin
+    0%
+        transform: scale(.9)
+    100%
+        transform: scale(1)

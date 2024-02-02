@@ -1,40 +1,64 @@
 @import "../../../../styles/utils"
 .Categories
-    +w(100%)
-    +mnh($size*40)
-    +p($size*2)
+    // +w(100%)
+    // +mnh($size*40)
+    
+    +p($size*4 $size*2)
+    // +f(1)
     +df
     +fdc
     justify-content: space-evenly
 
     .content
-        +whs(100%)
+        +wh(100%, $size*44)
+        @media (orientation: landscape)
+            +h($size*44)
         +df
-        +fwr
+        // +bg(#777)
         +jca
         +cenc
         +posr
+        display: grid
+        grid-template-rows: 50% 50%
+        grid-template-columns: 50% 50%
+        gap: $size*.5
     h1
         +tac
+        +c(#111)
+        +fs($size)
+        +m($size 0)
+        +fw(400)
         // +posa
         // +cenx
         // +t($size*4)
     .Category
+        // +f(1)
         +posr
         +df
-        +fdc
-        +m($size)
+        // +cenc
+        // +m($size)
         +cp
-        // +mb($size*2)
-        // +mr($size*2)
-        +cenc
-        // +bg($white)
-        // +p($size*2)
-        // +pt($size)
-        // box-shadow: 0 $size*.5 $size*.5 transparentize($black, .9)
-        +o(.85)
+        // +o(.85)
         +trs($transition)
-        
+        // +bg(#999)
+        +whs(100%)
+        // +bdr($grey2)
+        +bdr(transparent)
+        @media (orientation: portrait) 
+            +fdc
+
+        .right, .left
+            +wh(50%, 100%)
+            @media (orientation: portrait)
+                +wh(100%, 50%)
+        .left
+            +oh
+        .right
+            +posr
+            +df
+            +fdc
+            +cenc
+            // +f(1)
         h2
             +mb($size)
             +fs($size*1.5)
@@ -44,45 +68,70 @@
             +df
             +jcb
         img
-            +w($size*14)
-            +mb($size)
+            // @media (orientation: landscape)
+            //     +w(40%)
+            // +dn
+            // +w($size*14)
+            // +mb($size)
+            +whs(100%)
+            // +f(1)
+            +o(.75)
+            +oh
+            // transform: scale(1.2)
             object-fit: cover
-            +rad($roundness)
-            +trs($transition)
+            // +rad($roundness)
+            +trs($transition*2)
+            // transition-timing-function: ease-in
             // +p($size)
             &:first-of-type
                 +posr
                 +z(2)
+            &:nth-of-type(1)
+                // width: 50%
             &:last-of-type
                 +posr
                 +z(1)
                 // +t($size*2)
                 // +l(-$size*2)
         button
-            +cen
+            // +dn
+            // +cen
             +cp
-            +fs($size)
-            +rad($roundness)
+            +whs(0)
             +trs($transition)
+            +oh
+            // +fs($size)
+            // +rad($roundness)
+            // +trs($transition)
             +z(3)
-            +o(0)
-            +bg($white)
+            // +o(0)
+            // +bg($white)
             +bdrn
+            +c(white)
             +c($black)
-            +fs($size*1.5)
+            // text-shadow: -$size*.1 $size*.2 transparentize($black, .25)
+            // font-style: italic
+            +ls($size/-10)
+            +fs($size*2)
+            +bg(transparent)
             // box-shadow: 0 $size*.5 $size transparentize($black, .5)
-            +fw(300)
-            +t(45%)
-            +p($size $size*2)
+            // +fw(900)
+            +josefin
+            // +dm
+            // +t(45%)
+            // +p($size $size*2)
             
             // +dn
 
         &:hover
-            +o(1)
+            // +o(1)
+            +bdr($black)
+            +bdr($grey2)
             img
-                box-shadow: 0 $size*.5 $size transparentize($black, .5)
-            h2
-                +c($black)
-            button
+                transform: scale(1.2)
                 +o(1)
-                
+            //     box-shadow: 0 $size*.5 $size transparentize($black, .5)
+            // h2
+            //     +c($black)
+            button
+                +whs(max-content)

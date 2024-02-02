@@ -1,85 +1,107 @@
 @import "../../styles/utils"
 .Shop
     +pt($size*5)
-    +mnh(100vh)
+    +posr
+    +df
+    .filters-container
+        +f(.25)
+        +m(0 $size*2)
+        +mb($size*2)
+        +posr
+    
     .filters
-        +p($size)
-        +pl($size*3)
-        +df
-        +aic
-        +acc
-        +fwr
-        @media (orientation: portrait)
-            +jce
+        +f(.25)
+        // +whs(100%)
+        position: sticky
+        top:0
+        +t($size*4)
         .filter
-            // +p($size*.5 $size)
-            // +bdr(#777)
+            +tac
+            +ls($size*.05)
+            +fs($size)
+            +m($size*.75 0)
+            +cenc
             +c(#777)
-            +rad($roundness)
-            +mr($size)
-            +mb($size*.5)
-            +p($size*.5 $size)
             +cp
             +trs($transition)
-            &:hover
-                +c($black)
+            +posr
         .filter-active
-            +bg($grey)
-            +c($white)
-            // +mr($size*1.5)
-            &:hover
-                +c($white)
+            text-decoration: none
+            +c($black)
         svg
+            +dn
             +whs($size)
             +fl($grey)
             +mr($size)
             +mb($size*.5)
-
+    .img
+        position: fixed
+        +l(-$size*6)
+        +b($size*10)
+        rotate: 20deg
+        opacity: .25
+        img
+            +w($size*20)
+        // +l(0)    
+    
     .products
-        +df
-        +fwr
-        justify-content: space-evenly
-        justify-items: flex-start
-        // @media (orientation: landscape)
-        // +w(100%)
-        +p($size $size*2)
+        +f(1)
+        +m(0 $size*2)
+        +mb($size*2)
+        display: grid
+        gap: $size
+        @media (orientation: portrait)
+            grid-template-columns: auto auto
+        @media (orientation: landscape)
+            grid-template-columns: auto auto auto auto
+        @media (max-width: 550px)
+            grid-template-columns: auto
+
         .product
-            +rad($roundness)
             +oh
-            // +mnh($size*24)
-            +bg($white)
-            +bdr($accent-light)
-            @media (min-width: 950px)
-                +w(17.5%)
-            @media (max-width: 950px)
-                +w(24%)
-            @media (orientation: portrait)
-                +w(48%)    
             +mb($size*2)
-            // +w(25%)
-            +tac
-            +pb($size*1.5)
+            +ls($size*.05)
             +df
             +fdc
-            // +aic
-
-            // +jcb
-            img
-                +mb($size)
+            +bdr(transparent)
+            justify-content: flex-start
+            .top
+                +bg($accent-light)
+                +p($size)
                 +w(100%)
-            .span
-                +df
-                +fdc
                 +cenc
+                +mb($size)
+            .image
+                +oh
+                +bg($grey2)
+                +mnwhs($size*8)
+                +whs($size*8)
+                +posr
+            img
+                +w(100%)
+                +posr
+                +b($size*3)
+                transform: scale(1.9)
+
+                +trs($transition*2)
+            .text
+                +m($size)
             h3
-                +w(80%)
-                +m(0 $size*.5)
-                +mb($size*.5)
-                // +oe
+                +fs($size)
+                +tal
+                +mb($size*.25)
+
                 +fw(300)
             h5
                 +fs($size*1.5)
-                +c($orange)
             +trs($transition)
             &:hover
-                box-shadow: 0 $size*.5 $size*2 transparentize($black, .75)
+                +bdr($grey2)
+                img
+                    transform: scale(2.3)
+        .crop-fix
+            img
+                +b(0)
+        .crop-fix-2
+            img
+                +b($size*4.5)

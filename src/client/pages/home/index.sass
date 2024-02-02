@@ -1,4 +1,34 @@
 @import "../../styles/utils"
-    
+
 .Home
     +pt($size*2)
+    +f(1)
+
+.homeAbout
+    +p($size*2)
+    +bg($accent-dark)
+    +df
+    +jcb
+    +aic
+    // +mb($size*4)
+    +oh
+    +posr
+    p
+        +c($white)
+        +mxw(80%)
+        font-style: italic
+    .img
+        // +cenc
+        +f(1)
+        +bg(url("/assets/images/dalmation-icon.png"))
+    img
+        +posa
+        +b(50%)
+        +l(-10%)
+        transform: translateY(50%)
+        +h($size*20)
+        rotate: -20deg
+        opacity: .25
+        @media (orientation: portrait)
+            +h($size*20)
+            +l(-25%)

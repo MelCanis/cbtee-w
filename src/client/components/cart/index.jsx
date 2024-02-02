@@ -2,6 +2,7 @@ import { create } from "zustand";
 import "./index.sass";
 import { BsFillTrash2Fill } from "react-icons/bs"
 import checkout from "../../../server/script";
+import { useEffect, useState } from "react";
 
 const cartStore = create((set, get) => ({
     open: false,
@@ -31,12 +32,19 @@ function CartItem (product) {
 
 
 export default function Cart () {
-    const { open, cart } = cartStore(s => s)
+    const { open, cart } = cartStore(s => s);
+    const [subtotal, setSubtotal] = useState(0);
+    useEffect(_ => { let st = 0; cart.map((i => st+=i.price)); setSubtotal(s => st); }, [cart]);
 
     if ( open ) return (
         <div className="Cart">
             {/* <p>My Cart</p> */}
-            <button onClick={_ => checkout(cart)}>Order Now</button>
+            {cart.length > 0 ?
+            <p>Cart Subtotal: ${subtotal} ({cart.length} item{cart.length > 1 ? "s" : ""})</p>:
+            <p>0 Items In Cart</p>
+            
+            }
+            <button onClick={_ => checkout(cart)}>Proceed To Checkout</button>
             <div className="cart-items">
                 {cart.map(i => <CartItem key={i.name} {...i}/>)}
             </div>

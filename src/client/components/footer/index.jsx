@@ -4,13 +4,14 @@ import { MdEmail, MdSmartphone } from "react-icons/md"
 export default function Footer () {
     return (
         <div className="Footer">
+            <h4>CONTACT US</h4>
             <span>
                 <MdEmail />
                 <p>thompsonray193@gmail.com</p>
             </span>
             <span>
                 <MdSmartphone />
-                <p>4707471634</p>
+                <p>(470) 747-1634</p>
             </span>
         </div>
     )
