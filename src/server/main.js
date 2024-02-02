@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require("express");
 const ViteExpress = require("vite-express");
 const app = express();
-// ViteExpress.config({ mode: "production" })
+ViteExpress.config({ mode: "production" })
 app.use(express.json())
 const cors = require('cors');
 app.use(
