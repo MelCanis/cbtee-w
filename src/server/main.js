@@ -14,8 +14,8 @@ app.use(
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
 
 app.post('/api/checkout', async (req, res) => {
-  console.log("post made")
   try {
+      console.log("post made")  
       const session = await stripe.checkout.sessions.create({
           payment_method_types: ['card'],
           mode: 'payment',
@@ -31,8 +31,8 @@ app.post('/api/checkout', async (req, res) => {
               quantity: 1
             }
           } ),
-          success_url: `${process.env.SERVER_URL}success`,
-          cancel_url: `${process.env.SERVER_URL}shop`,
+          success_url: `${req.body.location}/success`,
+          cancel_url: `${req.body.location}/shop`,
           shipping_address_collection: {
             allowed_countries: ['US'],
           },
@@ -51,6 +51,7 @@ app.post('/api/checkout', async (req, res) => {
       })
       res.json({ url: session.url })
   } catch (e) {
+      console.log("is internal")
       res.status(500).json({ error: e.message })
   }
 })

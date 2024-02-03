@@ -6,7 +6,7 @@ export default function checkout (cart) {
         },
         body: JSON.stringify({
             items: applyDiscountAndMultiplier(cart),
-            location: window.location.href
+            location: window.location.host
         })
     }).then(res => {
         if (res.ok) return res.json()
