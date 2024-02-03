@@ -14,7 +14,6 @@ app.use(
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
 
 app.post('/api/checkout', async (req, res) => {
-  console.log("made it")
   try {
       const session = await stripe.checkout.sessions.create({
           payment_method_types: ['card'],
