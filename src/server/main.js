@@ -8,7 +8,7 @@ app.use(express.json())
 const cors = require('cors');
 app.use(
   cors({
-    origin: "https://connectingbacktoearthelements.com"
+    origin: "https://cbtee.vercel.app/"
   })
 )
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
