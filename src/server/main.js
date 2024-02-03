@@ -31,8 +31,8 @@ app.post('/api/checkout', async (req, res) => {
               quantity: 1
             }
           } ),
-          success_url: `${req.body.location}/success`,
-          cancel_url: `${req.body.location}/shop`,
+          success_url: `${req.body.location}`,
+          cancel_url: `${req.body.location}`,
           shipping_address_collection: {
             allowed_countries: ['US'],
           },
