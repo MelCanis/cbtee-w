@@ -1,1 +1,1 @@
-web: node src/server/main.js
+web: NODE_ENV=production node src/server/main.js
