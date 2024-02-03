@@ -7,13 +7,14 @@ ViteExpress.config({ mode: "production" })
 app.use(express.json())
 const cors = require('cors');
 app.use(
-  cors({
-    origin: "https://cbtee.vercel.app/"
-  })
+  cors(
+    // { origin: "https://cbtee.vercel.app/" }
+  )
 )
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
 
 app.post('/api/checkout', async (req, res) => {
+  console.log("post made")
   try {
       const session = await stripe.checkout.sessions.create({
           payment_method_types: ['card'],
@@ -30,8 +31,8 @@ app.post('/api/checkout', async (req, res) => {
               quantity: 1
             }
           } ),
-          success_url: `${process.env.SERVER_URL}/success`,
-          cancel_url: `${process.env.SERVER_URL}/shop`,
+          success_url: `${process.env.SERVER_URL}success`,
+          cancel_url: `${process.env.SERVER_URL}shop`,
           shipping_address_collection: {
             allowed_countries: ['US'],
           },
