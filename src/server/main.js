@@ -16,7 +16,7 @@ app.post('/api/products', async (req, res) => {
       limit: 50,
       active: true,
     })
-    const withprice = await Promise.all(available.map(async i => {
+    const withprice = await Promise.all(products.map(async i => {
       const pricedata = await stripe.prices.retrieve(i.default_price);
       return {...i, price: pricedata.unit_amount*.01}
     }))
