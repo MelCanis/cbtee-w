@@ -4,8 +4,9 @@ import "./index.sass";
 import { useEffect, useState } from "react";
 import { IoFilterSharp } from "react-icons/io5"
 import Icon from "/assets/images/dalmation-icon.png"
+import { listProducts } from "../../../server/script";
 
-function Product ({name, price}) {
+function Product ({name, price, images}) {
     const className = (['Leopardite (Stainless Steal Chain)', 'Raw Pyrite with Turquoise',
     'Tiger Eye & Shungite', 'Tree Cages with Crystal Ear Rings (Multiple Stones in Cages)',
     'Australian Zebra Stone & Picture Jasper', 'Chakra Chips (Multiple Stones) (Orange Calcite Pointer)',
@@ -19,7 +20,8 @@ function Product ({name, price}) {
         {/* <div > */}
             <div className="top">
                 <div className="image">
-                    <img src={`/assets/products/${name.replace(/#/g, "-")}.jpg`} />
+                    {/* <img src={`/assets/products/${name.replace(/#/g, "-")}.jpg`} /> */}
+                    <img src={images[0]} alt="" />
                 </div>
             </div>
             <div className="text">
@@ -41,10 +43,12 @@ const filters = {
 
 export default function Shop () {
     const { filter } = useParams();
-    const [ list, setList ] = useState(products);
+    const [ list, setList ] = useState(null);
+    const [stripeList, setStripeList] = useState(null);
     useEffect(_ => {
-        setList(products.filter(filters[filter]))
-    }, [filter])
+        !list && listProducts()
+        .then(x => setList(x));
+    }, [stripeList, list])
     return (
         <div className="Shop page">
             <div className="filters-container">
@@ -62,7 +66,7 @@ export default function Shop () {
                 </div>
             </div>
             <div className="products">
-                {list.sort((a, b) => a.name.localeCompare(b.name)).map(i => <Product key={i.name} {...i}/>)}
+                {list && list.sort((a, b) => a.name.localeCompare(b.name)).map(i => <Product key={i.name} {...i}/>)}
             </div>
         </div>
     )

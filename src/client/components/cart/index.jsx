@@ -21,7 +21,8 @@ function CartItem (product) {
         <div className="CartItem">
             {/* <input type="checkbox" defaultChecked="true" onChange={_ => remove(product)}/> */}
             <BsFillTrash2Fill onClick={_ => remove(product)} />
-            <img src={`/assets/products/${product.name.replace(/#/g, "-")}.jpg`} alt="" />
+            {/* <img src={`/assets/products/${product.name.replace(/#/g, "-")}.jpg`} alt="" /> */}
+            <img src={product.images[0]} alt="" srcset="" />
             <span>
                 <h5>{product.name}</h5>
                 <h6>{`$${product.price}`}</h6>
@@ -34,7 +35,9 @@ function CartItem (product) {
 export default function Cart () {
     const { open, cart } = cartStore(s => s);
     const [subtotal, setSubtotal] = useState(0);
-    useEffect(_ => { let st = 0; cart.map((i => st+=i.price)); setSubtotal(s => st); }, [cart]);
+    useEffect(_ => {
+        let st = 0; cart.map((i => st+=i.price)); setSubtotal(s => st);
+    }, [cart]);
 
     if ( open ) return (
         <div className="Cart">

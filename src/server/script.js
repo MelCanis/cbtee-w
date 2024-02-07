@@ -5,7 +5,7 @@ export default function checkout (cart) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            items: applyDiscountAndMultiplier(cart),
+            items: cart,
             location: window.location.origin
         })
     }).then(res => {
@@ -33,4 +33,40 @@ function applyDiscountAndMultiplier (cart) {
         }
     } );
     return result
+}
+
+export function listProducts () {
+    return fetch("/api/products", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({})
+    }).then(res => {
+        if (res.ok) return res.json()
+        return res.json().then(json => Promise.reject(json))
+    }).then(({products}) => {
+        return products
+    }).catch(e => {
+        console.error(e.error)
+    })
+}
+
+export function disableProducts (x) {
+    return fetch("/api/success", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            session_id: x,
+        })
+    }).then(res => {
+        if (res.ok) return res.json()
+        return res.json().then(json => Promise.reject(json))
+    }).then(x => {
+        return x
+    }).catch(e => {
+        console.error(e.error)
+    })
 }

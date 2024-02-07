@@ -4,7 +4,7 @@ import "./index.sass";
 import { useEffect, useRef, useState } from "react";
 import { cartStore } from "../../components/cart";
 import ImageZoom from "js-image-zoom";
-import checkout from "../../../server/script.js"
+import checkout, { listProducts } from "../../../server/script.js"
 
 export default function Product () {
     const { productName } = useParams();
@@ -31,9 +31,11 @@ export default function Product () {
     //         setZoom(true);
     //     }
     // }, [zoom, loaded, imageRef.current])
+    const parseurl = x => x.replace(/X/g, "#").split("-").join(" ")
     useEffect(_ => {
-        setProduct(products.find(i => i.name == productName.replace(/X/g, "#").split("-").join(" ")))
-    }, [productName])
+        !product && listProducts()
+        .then(x => setProduct(x.find(({name}) => name == parseurl(productName))));
+    }, [productName, product])
     if (product) return (
         <div className="Product page">
             <div className="info">
