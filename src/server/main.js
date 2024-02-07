@@ -14,8 +14,9 @@ app.post('/api/products', async (req, res) => {
   try {
     const products = await stripe.products.list({
       limit: 50,
+      active: true,
+      livemode: true
     })
-    const available = products.data.filter(i => i.active == true);
     const withprice = await Promise.all(available.map(async i => {
       const pricedata = await stripe.prices.retrieve(i.default_price);
       return {...i, price: pricedata.unit_amount*.01}
