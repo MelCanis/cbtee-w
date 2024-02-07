@@ -45,8 +45,9 @@ export function listProducts () {
     }).then(res => {
         if (res.ok) return res.json()
         return res.json().then(json => Promise.reject(json))
-    }).then(({products}) => {
-        return products
+    }).then((x) => {
+        console.log(x)
+        return x.products
     }).catch(e => {
         console.error(e.error)
     })
