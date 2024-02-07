@@ -20,7 +20,7 @@ app.post('/api/products', async (req, res) => {
       const pricedata = await stripe.prices.retrieve(i.default_price);
       return {...i, price: pricedata.unit_amount*.01}
     }))
-    res.json({ products: withprice })
+    res.json({ preproducts: products, available: available, products: withprice })
   } catch (e) {
     res.status(500).json({ error: e.message })
   }

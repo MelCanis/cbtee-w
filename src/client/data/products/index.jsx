@@ -17,7 +17,7 @@ const products = [
     new Product("Red Turquoise with Black Onyx (Dalmation Signature)", 65),
     new Product("Red Turquoise (Dalmation Signature)", 65),
     new Product("Green Jades with Carnelian (Dalmation Signature)", 65),
-    new Product("Purple Sea Sediment with Aquamarine (Dalmation Signature) ", 65),
+    new Product("Purple Sea Sediment with Aquamarine (Dalmation Signature)", 65),
     new Product("Hematite Beads", 65),
     new Product("Black Obsidian with Lapis", 65),
     new Product("Blue Sodalite", 65),

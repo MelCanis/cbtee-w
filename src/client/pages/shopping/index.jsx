@@ -1,5 +1,4 @@
 import { Link, useParams } from "react-router-dom";
-import products from "../../data/products";
 import "./index.sass";
 import { useEffect, useState } from "react";
 import { IoFilterSharp } from "react-icons/io5"
@@ -44,11 +43,10 @@ const filters = {
 export default function Shop () {
     const { filter } = useParams();
     const [ list, setList ] = useState(null);
-    const [stripeList, setStripeList] = useState(null);
     useEffect(_ => {
         !list && listProducts()
         .then(x => setList(x));
-    }, [stripeList, list])
+    }, [list])
     return (
         <div className="Shop page">
             <div className="filters-container">
