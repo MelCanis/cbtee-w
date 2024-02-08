@@ -36,17 +36,18 @@ const filters = {
     "65": x => x.price == 65,
     "75": x => x.price == 75,
     "100": x => x.price == 100,
-    sets: x => x.category == "set",
-    cages: x => x.category == "cage",
+    sets: x => x.metadata.type && x.metadata.type == "set",
+    cages: x => x.metadata.type && x.metadata.type == "cage",
 }
 
 export default function Shop () {
     const { filter } = useParams();
     const [ list, setList ] = useState(null);
+    const [filtered, setfiltered] = useState([]);
     useEffect(_ => {
-        !list && listProducts()
-        .then(x => setList(x));
-    }, [list])
+        listProducts()
+        .then(x => setList(x.filter(filters[filter])));
+    }, [filter]);
     return (
         <div className="Shop page">
             <div className="filters-container">

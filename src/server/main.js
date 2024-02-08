@@ -13,14 +13,15 @@ const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
 app.post('/api/products', async (req, res) => {
   try {
     const products = await stripe.products.list({
-      limit: 50,
+      limit: 100,
       active: true,
     })
-    const withprice = await Promise.all(products.data.map(async i => {
+    const withprice = await Promise.all(products.data.map(async i=> {
+      if (typeof i.default_price !== "string") return i;
       const pricedata = await stripe.prices.retrieve(i.default_price);
       return {...i, price: pricedata.unit_amount*.01}
     }))
-    res.json({ preproducts: products, products: withprice })
+    res.json({ products: withprice })
   } catch (e) {
     res.status(500).json({ error: e.message })
   }
