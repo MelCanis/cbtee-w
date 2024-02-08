@@ -29,7 +29,7 @@ app.post('/api/products', async (req, res) => {
 
 app.post('/api/checkout', async (req, res) => {
   try {
-    console.log(req.body.items)
+    const isTest = req.body.items.find(i => i.metadata.testitem == true)
     const discountElligible = req.body.items.filter(i => i.price == 65).length > 1
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
@@ -54,7 +54,7 @@ app.post('/api/checkout', async (req, res) => {
             shipping_rate_data: {
               type: 'fixed_amount',
               fixed_amount: {
-                amount: 1000,
+                amount: isTest ? 100 : 1000,
                 currency: 'usd',
               },
               display_name: 'Shipping',
