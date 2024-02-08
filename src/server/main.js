@@ -60,7 +60,7 @@ app.post('/api/checkout', async (req, res) => {
             },
           },
         ],
-        discounts: discountElligible ? [{coupon: 'CKFqhAWt'}] : []
+        discounts: discountElligible ? [{coupon: 'hJfaVRpd'}] : []
     })
     res.json({ url: session.url })
   } catch (e) {
