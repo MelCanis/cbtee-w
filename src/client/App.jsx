@@ -11,10 +11,12 @@ import Payment from "./pages/payment"
 import { Routes, Route } from "react-router-dom"
 import Shop from "./pages/shopping"
 import Success from "./pages/success"
+import ScrollReset from "../util/scrollreset"
 
 function App() {
   return (
     <>
+    <ScrollReset />
     <Header />
     <div className="main">
         <Routes>
