@@ -5,7 +5,7 @@ const express = require("express");
 const ViteExpress = require("vite-express");
 const app = express();
 app.use(express.json())
-// ViteExpress.config({ mode: "production" })
+ViteExpress.config({ mode: "production" })
 const cors = require('cors');
 app.use(cors())
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
