@@ -7,6 +7,8 @@ export default function Hero () {
             {/* <div className="top"> */}
                 <div className="background">
                     <img src="/assets/images/dalmation.jpg"  />
+                    {/* edits */}
+                    {/* <img src="/assets/images/hero-image.jpg"/> */}
                 </div>
             {/* </div> */}
             <div className="bottom">

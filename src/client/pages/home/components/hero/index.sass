@@ -26,17 +26,18 @@
         // +dn
         +o(.35)
         filter: blur($size*.15)
-        // transform: scale(1.1)
+        transform: translate(-50%, -50%) scale(1.1)
         img
             +f(1)
             // transform: scale(0.9)
             object-fit: cover
-            animation: zoomin 1s
+            // animation: zoomin 1s
     .text
         +cen
         +fdc
         +cenc
         +tac
+
         @media (orientation: landscape)
             +mnw(70%)
         h1, span
@@ -47,6 +48,9 @@
             font-style: italic
             +dm
             text-shadow: 0 $size*.25 #aaa
+            /* edits */
+            // +c(white)
+            // text-shadow: 0 $size*.25 #111
         span
             +fs($size*5.5)
             +ls(calc($size/-6))
@@ -58,6 +62,8 @@
             +mb($size)
             +c($black)
             +ls(calc($size/-10))
+            // +c(white)
+            // text-shadow: 0 $size*.1 #111
             // +dm
             // text-shadow: $size*.25 $size*.25 transparentize($black, .9)
         button
