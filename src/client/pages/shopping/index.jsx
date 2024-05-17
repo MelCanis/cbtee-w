@@ -65,7 +65,11 @@ export default function Shop () {
                 </div>
             </div>
             <div className="products">
-                {list && list.sort((a, b) => a.name.localeCompare(b.name)).map(i => <Product key={i.name} {...i}/>)}
+                <div className="sold-out">
+                    <h4>Temporarily Sold Out</h4>
+                    <h5>Our jewelry line is currently out of stock due to high demand. We apologize for any inconvenience and are working to restock soon.</h5>
+                </div>
+                {/* {list && list.sort((a, b) => a.name.localeCompare(b.name)).map(i => <Product key={i.name} {...i}/>)} */}
             </div>
         </div>
     )
